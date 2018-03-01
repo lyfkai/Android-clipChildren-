@@ -1,37 +1,68 @@
-## Welcome to GitHub Pages
+一、Android中clipChildren属性的用法
 
-You can use the [editor on GitHub](https://github.com/lyfkai/Android-clipChildren-/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+二、为了做出这种效果图你能想到的方式是什么呢？用RelativeLayout？还是.......
 
-### Markdown
+其实很简单，只要用了这个神奇的属性后这个效果很容易就可以实现，下面是注意点：
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1、只需在根节点设置android:clipChildren为false即可，默认为true，注意：一定是在布局文件的根节点设置，否则不起作用
 
-```markdown
-Syntax highlighted code block
+2、可以通过android:layout_gravity控制超出的部分如何显示
 
-# Header 1
-## Header 2
-### Header 3
+3、android:clipChildren的意思：是否限制子View在其范围内，我们将其值设置为false后那么当子控件的高度高于父控件时也会完全显示,而不会被压缩 
+布局文件如下：
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+三、布局
 
-**Bold** and _Italic_ and `Code` text
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
 
-[Link](url) and ![Image](src)
-```
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="#B0C4DE"
+        android:orientation="horizontal" 
+        android:layout_alignParentBottom="true">
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher" />
 
-### Jekyll Themes
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher" />
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/lyfkai/Android-clipChildren-/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="70dip"
+            android:layout_gravity="bottom"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher" />
 
-### Support or Contact
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher" />
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+</RelativeLayout>
