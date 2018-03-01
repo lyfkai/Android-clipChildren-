@@ -1,9 +1,12 @@
 一、Android中clipChildren属性的用法
 
+效果图地址
+http://img.blog.csdn.net/20150326102931066?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZmx5bW9vbjEyMDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center
+
 
 二、为了做出这种效果图你能想到的方式是什么呢？用RelativeLayout？还是.......
 
-其实很简单，只要用了这个神奇的属性后这个效果很容易就可以实现，下面是注意点：
+     其实很简单，只要用了这个神奇的属性后这个效果很容易就可以实现，下面是注意点：
 
 1、只需在根节点设置android:clipChildren为false即可，默认为true，注意：一定是在布局文件的根节点设置，否则不起作用
 
